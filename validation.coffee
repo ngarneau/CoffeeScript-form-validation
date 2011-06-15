@@ -1,5 +1,4 @@
 $(document).ready ->
-
   ###
   RegEx
   ###
@@ -7,22 +6,6 @@ $(document).ready ->
   emptyRegEx = new RegExp("[-_.a-zA-Z0-9]{3,}")
   numberRegEx = new RegExp("^[0-9]{3,}$")
   postalCodeRegEx = new RegExp("^[A-Z]{1}[0-9]{1}[A-Z]{1} [0-9]{1}[A-Z]{1}[0-9]{1}") 
-  
-  ###
-  Error Messages (French/English)
-  ###
-  errorMessages = []
-  errorMessages[$('#nom').attr("id")] = if langue is "fr" then "Le nom est invalide." else "Last name is invalid."
-  errorMessages[$('#prenom').attr("id")] = if langue is "fr" then "Le prénom est invalide." else "First name is invalid."
-  errorMessages[$('#institution').attr("id")] = if langue is "fr" then "L'institution est invalide." else "Institution is invalid."
-  errorMessages[$('#adresse').attr("id")] = if langue is "fr" then "L'adresse est invalide." else "Address is invalid."
-  errorMessages[$('#ville').attr("id")] = if langue is "fr" then "La ville est invalide." else "City is invalid."
-  errorMessages[$('#courriel').attr("id")] = if langue is "fr" then "Le courriel est invalide. ex.: info@domain.ca" else "Email is invalid. ex.: info@domain.ca"
-  errorMessages[$('#code').attr("id")] = "ex.: A1A 1A1"
-  errorMessages[$('#province').attr("id")] = if langue is "fr" then "Sélectionnez une province." else "Select a province."
-  errorMessages[$('#couverture').attr("id")] = if langue is "fr" then "Ajouter une couverture." else "Add a cover."
-  errorMessages[$('#cv').attr("id")] = if langue is "fr" then "Ajouter votre C.V." else "Add your C.V."
-  errorMessages[$('#lettre-resp').attr("id")] = if langue is "fr" then "Ajouter votre lettre." else "Add your lettre."
 
   ###
   Arrays of inputs, by types
@@ -31,6 +14,7 @@ $(document).ready ->
   emails = []
   codes = []
   selects = []
+  choices = [$("#premier-choix"), $("#deuxieme-choix"), $("#troisieme-choix"), $("#quatrieme-choix")]
   numbers = []
 
   ###
@@ -86,7 +70,7 @@ $(document).ready ->
   
 
   validateForm = () ->
-    $.extend(badFields = [], validateInputs(inputs, emptyRegEx), validateInputs(emails, emailRegEx), validateInputs(codes, postalCodeRegEx), validateSelect(selects), validateInputs(numbers, numberRegEx))
+    $.extend(badFields = [], validateInputs(inputs, emptyRegEx), validateInputs(emails, emailRegEx), validateInputs(codes, postalCodeRegEx), validateSelect(selects), validateInputs(numbers, numberRegEx), validateChoiceSelect(choices))
     if badFields.length is 0
       valid = true
     else
@@ -111,7 +95,20 @@ $(document).ready ->
       else
         error.push($(select).attr("id"))
         addErrorStyle(select)
-      return error
+    return error
+  
+  validateChoiceSelect = (choices) ->
+    error = []
+    for choice in choices
+      current = choice
+      for verif in choices
+        if($(current).attr("id") is $(verif).attr("id") or $(current).val() isnt $(verif).val())
+        else
+          error.push($(current).attr("id"))
+          $("#error-choice").html(errorMessages['choices'])
+    if error.length is 0
+      $("#error-choice").html("")
+    return error
   
   ###
   Error Styling, I changed the border of the input and put an error message within a span in the label of the same input, it's opt to you.
@@ -124,7 +121,7 @@ $(document).ready ->
     $(element).removeClass('form-error')
     $(element).prev('label').find('.error-message').html("")
 
-  $('#adhesion').submit ->
+  $('.validate-form').submit ->
     return validateForm()
   
     

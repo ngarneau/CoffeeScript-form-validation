@@ -1,0 +1,63 @@
+.validate-form{
+  font-size: 12px;
+  font-weight: lighter;
+  font-family: Helvetica sans-serif;
+  background-color: #333;
+  color: #999;
+  text-shadow: 0 1px #000;
+  width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.validate-form #send{
+  border: solid 1px #333;
+  background: -moz-linear-gradient(top, #666, #333);
+  background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#333));
+  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#666', EndColorStr='#333', GradientType=0);
+  -moz-box-shadow: 0 0 1px #000;
+  -webkit-box-shadow: 0 0 1px #000;
+  box-shadow: 0 1px 1px #000;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 10px;
+  color: white;
+  padding: 3px 15px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.validate-form #send:hover {
+  cursor: pointer;
+  -moz-box-shadow: 0 0 3px #000;
+  -webkit-box-shadow: 0 0 3px #000;
+  box-shadow: 0 1px 3px #000;
+
+}
+.validate-form label{
+  display: block;
+  padding: 7px 10px 3px 0;
+}
+.validate-form .styled{
+  border: none;
+  padding: 5px;
+  background: #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 0 2px #333 inset;
+  -webkit-box-shadow: 0 0 2px #333 inset;
+  box-shadow: 0 0 2px #333 inset;
+}
+.validate-form .form-error{
+  border: 1px solid #ffb0b0;
+}
+.error-message{
+  display: inline;
+  margin-left: 10px;
+}
+.error-message, .stars{
+  color: #dd3333;
+}

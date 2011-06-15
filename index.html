@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CoffeeScript Form Validation</title>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js' type='text/javascript'></script>
+  <script type="text/javascript" src="validation.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    errorMessages = [];
+    errorMessages[$('#name').attr("id")] = "Last name is invalid.";
+    errorMessages[$('#firstname').attr("id")] = "First name is invalid.";
+    errorMessages[$('#city').attr("id")] = "City is invalid.";
+    errorMessages[$('#email').attr("id")] = "Email is invalid. ex.: info@domain.ca";
+    errorMessages[$('#code').attr("id")] = "ex.: A1A 1A1";
+    errorMessages[$('#province').attr("id")] = "Select a province.";
+  });
+  </script>
+  <link href="form.css" rel="stylesheet" type="text/css">
+</head>
+  <body>
+        <form class="validate-form">
+          <h1>Coffee Script Validation Form</h1>
+            <p>
+              <label for="nom">Last Name <span class="stars">*</span> <span class="error-message"></span></label>
+              <input type="text" name="name" id="name" class="styled validate text" size="40"/>
+            </p>
+            <p>
+              <label for="prenom">First name <span class="stars">*</span> <span class="error-message"></span></label>
+              <input type="text" name="firstname" id="firstname" class="styled validate text" size="40"/>
+            </p>
+            <p>
+              <label for="courriel">Email <span class="stars">*</span> <span class="error-message"></span></label>
+              <input type="email" name="email" id="email" class="styled validate email" size="40"/>
+            </p>
+            <p>
+              <label for="ville">City <span class="stars">*</span> <span class="error-message"></span></label>
+              <input type="text" name="city" id="city" class="styled validate text" size="40"/>
+            </p>
+            <p>
+              <label for="province">Province <span class="stars">*</span> <span class="error-message"></span></label>
+              <select name="province" id="province" class="validate select">
+                <option value="0">Select a Province</option>
+                <option value="Alberta">Alberta</option>
+                <option value="Colombie-Britannique">British-Colombia</option>
+                <option value="i-p-e">Prince-Edouard-Island</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="Nouveau-Brunswick">New-Brunswick</option>
+                <option value="Nouvelle-Écosse">Nova-Scotia</option>
+                <option value="Nunavut">Nunavut</option>
+                <option value="Ontario">Ontario</option>
+                <option value="Québec">Québec</option>
+                <option value="Saskatchewan">Saskatchewan</option>
+                <option value="Terre-Neuve">Newfoundland</option>
+                <option value="t-n-o">Northwest Territories</option>
+                <option value="Yukon">Yukon</option>
+              </select>
+            </p>
+            <p>
+              <label for="code">Postal Code <span class="stars">*</span> <span class="error-message"></span></label>
+              <input type="text" name="code" id="code" size="7" class="styled validate code"/>
+            </p>
+            <p>
+              <label for="telephone">Phone number <span class="stars">*</span></label>
+              <input type="text" name="tel-indicatif" id="tel-indicatif" size="3" maxlength="3" class="styled validate number"/>
+              <input type="text" name="tel-premier" id="tel-premier" size="3" maxlength="3" class="styled validate number"/> -
+              <input type="text" name="tel-dernier" id="tel-dernier" size="4" maxlength="4" class="styled validate number"/>
+            </p> 
+            <input type="submit" name="send" id="send" value="Send request" />
+        </form>
+  </body>
+</html>
