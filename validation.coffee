@@ -2,10 +2,10 @@ $(document).ready ->
   ###
   RegEx
   ###
-  emailRegEx = new RegExp("^[-_.a-z0-9]+@[-_a-z0-9]+\.[a-z]{2,4}$")
-  emptyRegEx = new RegExp("[-_.a-zA-Z0-9]{3,}")
-  numberRegEx = new RegExp("^[0-9]{3,}$")
-  postalCodeRegEx = new RegExp("^[A-Z]{1}[0-9]{1}[A-Z]{1} [0-9]{1}[A-Z]{1}[0-9]{1}") 
+  emailRegEx = new RegExp(/^((?!\.)[a-z0-9._%+-]+(?!\.)\w)@[a-z0-9-]+\.[a-z.]{2,5}(?!\.)\w$/i)
+  emptyRegEx = new RegExp(/[-_.a-zA-Z0-9]{3,}/)
+  numberRegEx = new RegExp(/^[0-9]{3,}$/)
+  postalCodeRegEx = new RegExp(/^[A-Z]{1}[0-9]{1}[A-Z]{1} [0-9]{1}[A-Z]{1}[0-9]{1}/) 
 
   ###
   Arrays of inputs, by types
