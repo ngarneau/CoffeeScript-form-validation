@@ -4,6 +4,7 @@
   <title>CoffeeScript Form Validation</title>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js' type='text/javascript'></script>
   <script type="text/javascript" src="validation.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript">
   $(document).ready(function() {
     errorMessages = [];
@@ -15,10 +16,50 @@
     errorMessages[$('#province').attr("id")] = "Select a province.";
   });
   </script>
-  <link href="form.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+    }
+
+    .form-signin {
+      max-width: 600px;
+      padding: 19px 29px 29px;
+      margin: 0 auto 20px;
+      background-color: #fff;
+      border: 1px solid #e5e5e5;
+      -webkit-border-radius: 5px;
+         -moz-border-radius: 5px;
+              border-radius: 5px;
+      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+         -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+              box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+      margin-bottom: 10px;
+    }
+    .form-signin input[type="text"],
+    .form-signin input[type="password"] {
+      font-size: 16px;
+      height: auto;
+      margin-bottom: 15px;
+      padding: 7px 9px;
+    }
+    .form-signin .number{
+      width: 50px;
+    }
+    .error-message{
+      color: #b94a48;
+    }
+
+  </style>
 </head>
   <body>
-        <form class="validate-form">
+      <div class="container">
+        <form class="validate-form form-signin">
           <h1>Coffee Script Validation Form</h1>
             <p>
               <label for="nom">Last Name <span class="stars">*</span> <span class="error-message"></span></label>
@@ -65,7 +106,8 @@
               <input type="text" name="tel-premier" id="tel-premier" size="3" maxlength="3" class="styled validate number"/> -
               <input type="text" name="tel-dernier" id="tel-dernier" size="4" maxlength="4" class="styled validate number"/>
             </p> 
-            <input type="submit" name="send" id="send" value="Send request" />
+            <input type="submit" name="send" id="send" value="Send request" class="btn btn-large btn-primary"/>
         </form>
+      </div>
   </body>
 </html>
