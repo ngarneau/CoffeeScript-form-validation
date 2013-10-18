@@ -7,7 +7,7 @@
     */
 
     var addErrorStyle, allinputs, choices, code, codes, email, emailRegEx, emails, emptyRegEx, input, inputs, number, numberRegEx, numbers, postalCodeRegEx, removeErrorStyle, select, selects, validateChoiceSelect, validateForm, validateInputs, validateSelect, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _m, _n;
-    emailRegEx = new RegExp(/^((?!\.)[a-z0-9._%+-]+(?!\.)\w)@[a-z0-9-]+\.[a-z.]{2,5}(?!\.)\w$/i);
+    emailRegEx = new RegExp(/^((?!\.)[a-z0-9._%+-]+(?!\.)\w)@[a-z0-9-\.]+\.[a-z.]{2,5}(?!\.)\w$/i);
     emptyRegEx = new RegExp(/[-_.a-zA-Z0-9]{3,}/);
     numberRegEx = new RegExp(/^[0-9]{3,}$/);
     postalCodeRegEx = new RegExp(/^[A-Z]{1}[0-9]{1}[A-Z]{1} [0-9]{1}[A-Z]{1}[0-9]{1}/);
